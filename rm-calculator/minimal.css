@@ -1,0 +1,23 @@
+:root{
+  --bg:#0b0b0c;--surface:#151516;--surface-raised:#1c1c1e;--line:#303034;--line-soft:#242427;
+  --text:#f5f5f7;--muted:#98989f;--subtle:#6e6e73;--accent:#e8e8ed;--focus:#ffffff;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;letter-spacing:-.01em}
+.shell{width:min(760px,calc(100% - 40px));padding:28px 0 72px}
+.topbar{border-bottom:1px solid var(--line-soft);padding-bottom:18px}
+.brand{color:var(--subtle);font-size:10px;letter-spacing:.14em}.brand-mark{width:25px;height:25px;border-radius:50%;background:var(--text);color:var(--bg);font-size:13px}
+.compact-select{border:0;padding:4px 0 4px 9px;color:var(--subtle);background:transparent}.compact-select select{color:var(--text);font-weight:500}
+.hero{padding:76px 0 54px;display:block}.hero h1{font-size:clamp(42px,8vw,72px);font-weight:650;letter-spacing:-.065em}.eyebrow{color:var(--subtle);font-size:10px;letter-spacing:.15em}.hero-copy{color:var(--muted);font-size:16px;margin-top:20px}
+.hero-orbit{display:none}
+.mode-switch{background:var(--surface);border:1px solid var(--line-soft);border-radius:11px;padding:3px;margin-bottom:24px}.mode{padding:12px 16px;text-align:center;color:var(--muted);font-weight:500}.mode small{margin-top:1px;font-size:10px}.mode.active{background:var(--surface-raised);color:var(--text);box-shadow:0 1px 2px #000}
+.panel{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;padding:26px 0;margin:0;box-shadow:none}.panel-heading{margin-bottom:22px}.step{width:auto;height:auto;background:none;color:var(--subtle);font-size:11px}.panel h2{font-size:16px;font-weight:600}.live-pill,.model-badge{color:var(--subtle);font-weight:500;letter-spacing:0;font-size:11px}.model-badge{border:0;padding:0}
+.field,.set-row label{color:var(--muted);font-weight:500}.field input,.set-row input,.set-row select{background:var(--surface);border:1px solid var(--line);border-radius:10px;color:var(--text);font-weight:500}.field input{padding:16px;font-size:18px}.field input::placeholder,.set-row input::placeholder{color:var(--subtle)}.field input:focus,.set-row input:focus,.set-row select:focus{border-color:var(--focus);box-shadow:0 0 0 3px #fff1;outline:0}
+.helper,.muted{color:var(--subtle)}.button{border-radius:8px;font-weight:500}.button.ghost{background:var(--text);color:var(--bg)}.button.reset{border-color:var(--line);color:var(--muted)}
+.set-row{background:var(--surface);border:1px solid var(--line-soft);border-radius:12px;padding:14px}.set-index{color:var(--subtle)}.set-row input,.set-row select{background:#101011;border-color:var(--line);padding:11px 9px;font-size:14px}.set-row .remove{color:var(--subtle)}
+.result-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;margin:22px 0 0;box-shadow:0 20px 50px #0005}.result-card:after{display:none}.result-label{color:var(--muted);font-weight:500;letter-spacing:0}.pulse{background:var(--text);box-shadow:none}.result-value strong{color:var(--text);font-weight:650;letter-spacing:-.08em}.result-value span{color:var(--muted);font-weight:500}.result-meta{color:var(--subtle)}.result-meta strong{color:var(--muted);font-weight:500}.result-bar{background:var(--line);height:2px}.result-bar span{background:var(--text)}
+.metric-grid{gap:8px}.metric{background:var(--surface);border:1px solid var(--line-soft);border-radius:10px}.metric strong{font-weight:600}.metric.accent{border-color:var(--line)}.metric.accent strong{color:var(--text)}.bonus-breakdown{border-color:var(--line-soft)}.bonus-breakdown b{color:var(--text);font-weight:500}
+.formula-line{background:var(--surface);border-radius:8px}.formula-line.average{background:var(--surface-raised);border:1px solid var(--line);color:var(--text)}.formula-line span{color:var(--muted)}
+th,td{border-color:var(--line-soft)}th{color:var(--subtle)}td:last-child{color:var(--text);font-weight:600}.common-rm{background:var(--surface-raised);border-left:2px solid var(--text)}.common-rm td:last-child{color:var(--text)}.common-tag{background:var(--text);color:var(--bg);font-weight:600}
+.footer-actions{color:var(--subtle)}.button.danger{border-color:var(--line);color:var(--muted)}footer{border-color:var(--line-soft);color:var(--subtle)}footer span{color:var(--subtle)}
+@media(max-width:600px){.shell{width:min(100% - 28px,760px);padding-top:16px}.hero{padding:58px 0 38px}.hero-copy{font-size:15px}.panel{padding:22px 0}.result-card{padding:23px 20px}.set-row{grid-template-columns:22px 1.2fr .8fr .65fr .75fr 25px}.set-row input,.set-row select{font-size:12px}.footer-actions{margin-top:22px}}

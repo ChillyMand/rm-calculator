@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#101315" />
+    <title>RM 力量计算器 · WZRICE</title>
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <link rel="apple-touch-icon" href="./logo-rice-king-refined.png" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./rm-overrides.css" />
+    <link rel="stylesheet" href="./minimal.css" />
+    <link rel="stylesheet" href="./apple-blue.css" />
+    <link rel="stylesheet" href="./rebuild.css" />
+    <link rel="stylesheet" href="./final-colors.css" />
+    <link rel="stylesheet" href="./brand-final.css" />
+    <link rel="stylesheet" href="./footer-logo.css" />
+    <link rel="stylesheet" href="./support-entry.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand"><img class="brand-logo" src="./logo-rice-king-refined.png" alt="糯米饭大王" /><span class="brand-cn">糯米饭大王</span><span class="brand-en">WZRICE / TRAINING LAB</span></div>
+        <div class="top-controls">
+          <label class="compact-select"><span>单位</span><select id="unit"><option value="kg">kg</option><option value="lb">lb</option></select></label>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div>
+          <p class="eyebrow">STRENGTH ESTIMATOR / V1.0</p>
+          <h1>RM 力量计算器</h1>
+          <p class="hero-copy">把一组训练数据，变成更接近真实表现的力量估算。</p>
+        </div>
+        <div class="hero-orbit"><span>RM</span><i></i><b></b></div>
+      </section>
+
+      <nav class="mode-switch" aria-label="计算模式">
+        <button class="mode active" data-mode="single">常规估算 <small>单组</small></button>
+        <button class="mode" data-mode="multi">多组估算 <small>表现分析</small></button>
+      </nav>
+
+      <section id="single-panel" class="panel">
+        <div class="panel-heading"><div><span class="step">01</span><h2>输入一组训练数据</h2></div><span class="live-pill">实时计算</span></div>
+        <div class="input-grid single-grid">
+          <label class="field field-wide"><span>重量 <em id="single-weight-unit">kg</em></span><input id="single-weight" type="number" min="0" step="0.1" placeholder="请输入重量" /></label>
+          <label class="field"><span>完成次数</span><input id="single-reps" type="number" min="1" max="30" step="1" placeholder="请输入次数" /></label>
+        </div>
+        <p id="single-error" class="error" role="alert"></p>
+      </section>
+
+      <section id="multi-panel" class="panel hidden">
+        <div class="panel-heading"><div><span class="step">01</span><h2>记录正式训练组</h2></div><div class="multi-actions"><button id="reset-multi" class="button reset">重置</button><button id="add-set" class="button ghost" disabled>＋ 添加训练组</button></div></div>
+        <p class="helper">仅计算正式组。请先完整填写第 1 组，后续训练组会自动复制上一组数据。RIR 表示本组结束后理论上还能完成的次数。</p>
+        <div class="set-list" id="set-list"></div>
+        <p id="multi-error" class="error" role="alert"></p>
+      </section>
+
+      <section class="result-card">
+        <div class="result-label"><span class="pulse"></span>综合预计 1RM</div>
+        <div class="result-value"><strong id="main-result">—</strong><span id="main-unit">kg</span></div>
+        <div class="result-meta"><span>参考范围</span><strong id="result-range">—</strong></div>
+        <div class="result-bar"><span id="result-bar-fill"></span></div>
+      </section>
+
+      <section id="multi-summary" class="panel hidden">
+        <div class="panel-heading"><div><span class="step">02</span><h2>多组力量分析</h2></div><span class="model-badge">V1.0 MODEL</span></div>
+        <div class="metric-grid">
+          <div class="metric"><span>基础单组估算</span><strong id="base-result">—</strong></div>
+          <div class="metric accent"><span>多组表现估算</span><strong id="multi-result">—</strong></div>
+          <div class="metric"><span>总训练量</span><strong id="volume-result">—</strong></div>
+        </div>
+        <div class="bonus-breakdown"><div><span>组数贡献</span><b id="sets-bonus">0%</b></div><div><span>休息贡献</span><b id="rest-bonus">0%</b></div><div><span>稳定性贡献</span><b id="consistency-bonus">0%</b></div></div>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="panel-heading"><div><span class="step">03</span><h2>RM 训练重量表</h2></div><span class="muted">按综合预计 1RM</span></div>
+        <div class="rm-table-wrap"><table><thead><tr><th>RM</th><th>强度</th><th>建议重量</th></tr></thead><tbody id="rm-table"></tbody></table></div>
+      </section>
+
+      <section class="panel formulas-panel">
+        <div class="panel-heading"><div><span class="step">04</span><h2>公式计算详情</h2></div><span class="muted">8 个经典公式</span></div>
+        <div class="formula-list" id="formula-list"></div>
+      </section>
+
+      <section class="footer-actions"><a class="support-link" href="/support">支持与模型说明</a></section>
+      <footer>
+        <p><strong>注意：</strong>1RM 及 RM 数据均为基于训练表现的估算值，不代表实际最大力量。实际表现会受到动作标准、训练经验、疲劳程度、休息时间等因素影响，请根据自身情况合理安排训练。</p>
+        <img class="footer-logo" src="./logo-rice-king-full.png" alt="糯米饭大王 WZRICE" />
+        <p class="copyright">Copyright © 2026 WZRICE.CN. 保留所有权利。</p>
+      </footer>
+    </main>
+    <script src="./interaction-guard.js"></script>
+    <script type="module" src="./app.js?v=20260813-3"></script>
+  </body>
+</html>

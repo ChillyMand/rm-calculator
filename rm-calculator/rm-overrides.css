@@ -1,0 +1,7 @@
+.button.ghost:disabled{cursor:not-allowed;opacity:.42;color:var(--muted)}
+.multi-actions{display:flex;align-items:center;gap:8px}
+.button.reset{background:transparent;border:1px solid var(--line);color:var(--muted);font-size:12px}
+.common-rm{background:#293526;border-left:3px solid var(--lime)}
+.common-rm td{font-weight:800;color:var(--text)}
+.common-rm td:last-child{color:var(--lime);font-size:17px}
+.common-tag{display:inline-block;margin-left:8px;padding:2px 6px;border-radius:5px;background:var(--lime);color:#17210e;font-size:9px;vertical-align:middle}

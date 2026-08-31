@@ -1,0 +1,5 @@
+.footer-logo{display:block;width:min(330px,48vw);height:auto;object-fit:contain;margin:18px auto 0}
+footer{display:grid;grid-template-columns:1fr;align-items:center}
+footer p{max-width:760px}
+.copyright{text-align:center;color:var(--subtle);font-size:11px;margin:22px auto 0!important}
+@media(max-width:600px){.footer-logo{width:min(300px,76vw)}}

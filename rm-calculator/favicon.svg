@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">糯米饭大王图形标志</title>
+  <desc id="desc">一碗由细小米粒组成的糯米饭，顶部戴着金色王冠。</desc>
+
+  <!-- Crown -->
+  <path
+    fill="#D5A62E"
+    d="m218 171-8-49 28 20 18-37 18 37 28-20-8 49z"
+  />
+
+  <!-- Compact rice mound -->
+  <path
+    fill="#F4E7C5"
+    stroke="#4A2A1A"
+    stroke-width="8"
+    stroke-linejoin="round"
+    d="M146 305q12-73 68-103 42-22 84 0 56 30 68 103z"
+  />
+
+  <!-- Small, narrow glutinous-rice grains -->
+  <g fill="#F4E7C5" stroke="#4A2A1A" stroke-width="3.5">
+    <ellipse cx="238" cy="178" rx="13" ry="4.5" transform="rotate(-28 238 178)"/>
+    <ellipse cx="270" cy="178" rx="13" ry="4.5" transform="rotate(24 270 178)"/>
+
+    <ellipse cx="207" cy="203" rx="13" ry="4.5" transform="rotate(-38 207 203)"/>
+    <ellipse cx="239" cy="204" rx="13" ry="4.5" transform="rotate(12 239 204)"/>
+    <ellipse cx="273" cy="204" rx="13" ry="4.5" transform="rotate(-13 273 204)"/>
+    <ellipse cx="305" cy="203" rx="13" ry="4.5" transform="rotate(38 305 203)"/>
+
+    <ellipse cx="184" cy="231" rx="13" ry="4.5" transform="rotate(-29 184 231)"/>
+    <ellipse cx="216" cy="232" rx="13" ry="4.5" transform="rotate(26 216 232)"/>
+    <ellipse cx="250" cy="231" rx="13" ry="4.5" transform="rotate(-7 250 231)"/>
+    <ellipse cx="284" cy="231" rx="13" ry="4.5" transform="rotate(18 284 231)"/>
+    <ellipse cx="317" cy="231" rx="13" ry="4.5" transform="rotate(-25 317 231)"/>
+
+    <ellipse cx="167" cy="260" rx="13" ry="4.5" transform="rotate(-18 167 260)"/>
+    <ellipse cx="198" cy="261" rx="13" ry="4.5" transform="rotate(13 198 261)"/>
+    <ellipse cx="230" cy="260" rx="13" ry="4.5" transform="rotate(-31 230 260)"/>
+    <ellipse cx="262" cy="260" rx="13" ry="4.5" transform="rotate(6 262 260)"/>
+    <ellipse cx="294" cy="260" rx="13" ry="4.5" transform="rotate(31 294 260)"/>
+    <ellipse cx="326" cy="260" rx="13" ry="4.5" transform="rotate(-12 326 260)"/>
+    <ellipse cx="346" cy="279" rx="13" ry="4.5" transform="rotate(27 346 279)"/>
+
+    <ellipse cx="158" cy="289" rx="13" ry="4.5" transform="rotate(-25 158 289)"/>
+    <ellipse cx="190" cy="290" rx="13" ry="4.5" transform="rotate(24 190 290)"/>
+    <ellipse cx="223" cy="289" rx="13" ry="4.5" transform="rotate(-10 223 289)"/>
+    <ellipse cx="256" cy="290" rx="13" ry="4.5" transform="rotate(18 256 290)"/>
+    <ellipse cx="289" cy="289" rx="13" ry="4.5" transform="rotate(-23 289 289)"/>
+    <ellipse cx="322" cy="290" rx="13" ry="4.5" transform="rotate(11 322 290)"/>
+  </g>
+
+  <!-- Bowl -->
+  <path
+    fill="#4A2A1A"
+    d="M116 296h280c-7 74-60 124-140 124s-133-50-140-124zm113 116h54v27h28v20H201v-20h28z"
+  />
+</svg>

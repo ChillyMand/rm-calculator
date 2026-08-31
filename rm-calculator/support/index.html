@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#17191d" />
+    <title>支持 · RM 力量计算器</title>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/rm-overrides.css" />
+    <link rel="stylesheet" href="/minimal.css" />
+    <link rel="stylesheet" href="/apple-blue.css" />
+    <link rel="stylesheet" href="/rebuild.css" />
+    <link rel="stylesheet" href="/final-colors.css" />
+    <link rel="stylesheet" href="/brand-final.css" />
+    <link rel="stylesheet" href="/footer-logo.css" />
+    <link rel="stylesheet" href="/support.css" />
+    <link rel="stylesheet" href="/support-enhance.css" />
+  </head>
+  <body>
+    <main class="shell support-shell">
+      <header class="topbar">
+        <a class="brand support-brand" href="/"><img class="brand-logo" src="/logo-rice-king-refined.png" alt="糯米饭大王" /><span class="brand-cn">糯米饭大王</span><span class="brand-en">WZRICE / TRAINING LAB</span></a>
+        <a class="back-link" href="/">返回计算器</a>
+      </header>
+      <section class="hero support-hero">
+        <p class="eyebrow">SUPPORT / MODEL NOTES</p>
+        <h1>支持与模型说明</h1>
+        <p class="hero-copy">了解 RM 力量计算器如何从训练数据得出估算结果。</p>
+      </section>
+
+      <section class="support-card">
+        <div class="support-card-head"><span class="step">01</span><div><h2>单组计算模型</h2><p>根据一组重量、次数和 RIR，估算当前动作的 1RM。</p></div></div>
+        <div class="formula-flow"><span>实际次数 + RIR</span><b>→</b><span>8 种公式分别计算</span><b>→</b><span>去掉最高/最低后平均</span></div>
+        <div class="formula-grid"><span>Epley</span><span>Brzycki</span><span>Lander</span><span>Lombardi</span><span>Mayhew</span><span>O'Conner</span><span>Wathan</span><span>NSCA / Baechle</span></div>
+        <div class="example-box"><strong>示例：80kg × 8 次</strong><p>系统将 8 次作为有效次数，分别代入 8 种公式。例如 Epley：80 × (1 + 8 ÷ 30) ≈ 101.3kg。8 个有效结果排序后去掉 1 个最高值和 1 个最低值，再对剩余 6 个结果取平均。</p><div class="example-result"><span>综合预计 1RM</span><b>约 100kg</b></div></div>
+        <p class="model-note">某一公式在当前次数范围内无效时，会自动排除，不影响其他公式。</p>
+      </section>
+
+      <section class="support-card">
+        <div class="support-card-head"><span class="step">02</span><div><h2>多组计算模型</h2><p>结合多组训练中的力量输出、组数、休息和稳定性进行估算。</p></div></div>
+        <div class="formula-flow"><span>每组独立 1RM</span><b>→</b><span>重量加权基础值</span><b>→</b><span>表现修正</span></div>
+        <div class="parameter-list"><div><span>组数贡献</span><strong>最高 +8%</strong><small>组数越多，信息价值递减</small></div><div><span>休息贡献</span><strong>最高 +4%</strong><small>1–5 分钟选择范围</small></div><div><span>稳定性贡献</span><strong>最高 +3%</strong><small>比较后续组与第一组的表现</small></div></div>
+        <div class="cap-note">总修正上限：+15%</div>
+        <div class="example-box"><strong>示例：80kg × 5 × 5</strong><p>5 组正式组各自计算基础 1RM，再按实际重量加权得到基础值。5 组带来 +4% 组数贡献；若每组都稳定完成，稳定性贡献为 +3%；5 分钟休息不提供额外休息贡献。</p><div class="example-result"><span>假设基础 1RM = 92.5kg</span><b>综合预计 ≈ 98.98kg</b></div></div>
+        <p class="model-note">热身组不参与计算。RIR 属于表现修正变量，组间休息属于疲劳表现变量。</p>
+      </section>
+
+      <section class="support-card disclaimer-card">
+        <div class="support-card-head"><span class="step">03</span><div><h2>关于估算结果</h2><p>模型用于训练记录和计划参考，不等同于实际最大力量测试。</p></div></div>
+        <p class="model-note">不同公式和训练状态会产生不同结果。动作标准、训练经验、疲劳程度和休息时间，都可能影响实际表现。</p>
+        <a class="contact-button" href="mailto:wx@wzrice.cn">联系支持 · wx@wzrice.cn</a>
+      </section>
+
+      <footer class="support-footer"><img class="footer-logo" src="/logo-rice-king-full.png" alt="糯米饭大王 WZRICE" /><p class="copyright">Copyright © 2026 WZRICE.CN. 保留所有权利。</p></footer>
+    </main>
+    <script src="/interaction-guard.js"></script>
+  </body>
+</html>
