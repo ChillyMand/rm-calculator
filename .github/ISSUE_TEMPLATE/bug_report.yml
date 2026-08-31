@@ -1,0 +1,40 @@
+name: Bug 反馈
+description: 报告计算结果、页面显示或交互问题
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈问题。请尽量提供可复现的步骤和输入数据。
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 请说明实际发生了什么，以及你期望的结果。
+      placeholder: 请详细描述问题
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 请按顺序写出如何复现问题。
+      placeholder: |
+        1. 打开……
+        2. 输入……
+        3. 点击……
+    validations:
+      required: true
+  - type: textarea
+    id: inputs
+    attributes:
+      label: 输入数据与结果
+      description: 如涉及计算，请提供重量、次数、RIR、组数和休息时间等数据。
+      placeholder: 请填写相关数据和实际结果
+  - type: input
+    id: browser
+    attributes:
+      label: 浏览器与设备
+      placeholder: 例如：iPhone Safari、Windows Chrome
