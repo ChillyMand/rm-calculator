@@ -4,9 +4,16 @@ import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
-const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
+const types = {
+  '.html': 'text/html; charset=utf-8',
+  '.css': 'text/css; charset=utf-8',
+  '.js': 'text/javascript; charset=utf-8',
+  '.png': 'image/png',
+  '.webp': 'image/webp',
+};
 const server = createServer(async (request, response) => {
-  const urlPath = request.url === '/' ? '/index.html' : request.url;
+  const pathname = new URL(request.url, 'http://localhost').pathname;
+  const urlPath = pathname === '/' ? '/index.html' : pathname;
   const filePath = normalize(join(root, urlPath));
   if (!filePath.startsWith(root)) { response.writeHead(403); response.end('Forbidden'); return; }
   try { const body = await readFile(filePath); response.writeHead(200, { 'Content-Type': types[extname(filePath)] || 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' }); response.end(body); }
