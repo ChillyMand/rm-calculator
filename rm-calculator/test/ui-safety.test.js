@@ -54,8 +54,10 @@ test('calculator uses responsive workspace and analysis layouts', () => {
   assert.match(html, /class="calculator-layout"/);
   assert.match(html, /class="results-column"/);
   assert.match(html, /class="analysis-grid"/);
-  assert.match(html, /layout-v3\.css\?v=20260926-1/);
+  assert.match(html, /layout-v3\.css\?v=20260926-2/);
   assert.match(css, /grid-template-columns:minmax\(0,1\.35fr\)/);
+  assert.match(css, /\.results-column\{position:static\}/);
+  assert.match(css, /height:58px;min-height:58px/);
   assert.match(css, /@media\(max-width:900px\)/);
   assert.match(css, /@media\(max-width:420px\)/);
 });
