@@ -48,6 +48,18 @@ test('calculator exposes V3 multi-set inputs and no legacy reward UI', () => {
   assert.match(html, /app\.js\?v=20260926-v3/);
 });
 
+test('calculator uses responsive workspace and analysis layouts', () => {
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const css = fs.readFileSync(path.join(root, 'layout-v3.css'), 'utf8');
+  assert.match(html, /class="calculator-layout"/);
+  assert.match(html, /class="results-column"/);
+  assert.match(html, /class="analysis-grid"/);
+  assert.match(html, /layout-v3\.css\?v=20260926-1/);
+  assert.match(css, /grid-template-columns:minmax\(0,1\.35fr\)/);
+  assert.match(css, /@media\(max-width:900px\)/);
+  assert.match(css, /@media\(max-width:420px\)/);
+});
+
 test('served pages use a versioned favicon URL', async () => {
   const portServer = net.createServer();
   portServer.listen(0, '127.0.0.1');

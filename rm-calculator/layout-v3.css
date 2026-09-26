@@ -1,0 +1,61 @@
+/* Responsive workspace layout. Loaded last to keep layout rules predictable. */
+.shell{width:min(1120px,calc(100% - 48px));padding-bottom:64px}
+.hero{padding:64px 0 44px}
+.hero-copy{max-width:560px}
+.mode-switch{width:min(480px,100%);margin-bottom:28px}
+.calculator-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(330px,.75fr);gap:32px;align-items:start}
+.input-column,.results-column{min-width:0}
+.input-column>.panel{padding-top:24px}
+.results-column{position:sticky;top:24px}
+.results-column .result-card{margin:0;min-height:228px;display:flex;flex-direction:column;justify-content:center}
+.results-column #multi-summary{margin-top:16px;padding:22px 0 0}
+.results-column .v3-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+.results-column .metric{min-width:0}
+.results-column .metric strong{font-size:18px;overflow-wrap:anywhere}
+.analysis-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(330px,.75fr);gap:32px;align-items:start;margin-top:28px}
+.analysis-grid>.panel{min-width:0}
+.analysis-grid .formulas-panel{position:sticky;top:24px}
+.analysis-grid .formula-list{grid-template-columns:1fr}
+.analysis-grid .formula-line.average{grid-column:auto}
+@media(min-width:901px){
+  .analysis-grid .rm-table-wrap{max-height:620px;overflow:auto;border:1px solid var(--line-soft);border-radius:10px}
+  .analysis-grid table{border-radius:0}
+  .analysis-grid thead{position:sticky;top:0;z-index:1;background:var(--surface-raised)}
+}
+@media(max-width:900px){
+  .shell{width:min(760px,calc(100% - 36px))}
+  .hero{padding:58px 0 40px}
+  .mode-switch{width:100%;margin-bottom:20px}
+  .calculator-layout,.analysis-grid{display:block}
+  .results-column,.analysis-grid .formulas-panel{position:static}
+  .results-column .result-card{min-height:0;margin-top:18px}
+  .results-column #multi-summary{margin-top:0;padding-top:24px}
+  .analysis-grid{margin-top:0}
+  .multi-session-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+  .shell{width:min(100% - 24px,760px);padding-top:14px;padding-bottom:48px}
+  .topbar{padding-bottom:14px}
+  .brand-en{display:none}
+  .hero{padding:42px 0 30px}
+  .hero h1{font-size:clamp(39px,12vw,56px)}
+  .hero-copy{margin-top:14px;line-height:1.65}
+  .mode-switch{position:sticky;top:8px;z-index:5;box-shadow:0 10px 30px #0008}
+  .panel-heading{align-items:flex-start;flex-wrap:wrap}
+  .multi-actions{margin-left:auto}
+  .multi-actions .button{padding:9px 11px}
+  .input-column>.panel{padding-top:20px}
+  .results-column .result-card{margin-top:14px}
+  .result-value strong{font-size:clamp(52px,18vw,74px)}
+  .model-state{padding:12px}
+  .analysis-grid .panel{padding-top:24px}
+}
+@media(max-width:420px){
+  .multi-session-grid{grid-template-columns:1fr}
+  .panel-heading{gap:10px}
+  .multi-actions{width:100%;display:grid;grid-template-columns:auto 1fr}
+  .multi-actions .button{width:100%}
+  .v3-row.advanced{grid-template-columns:22px minmax(0,1fr) minmax(58px,.72fr) minmax(65px,.85fr) 22px;gap:4px;padding:11px 7px}
+  .v3-row.advanced .set-index{font-size:11px}
+  .v3-row.advanced input,.v3-row.advanced select{padding:9px 5px}
+}
