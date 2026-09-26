@@ -3,12 +3,12 @@
 .hero{padding:64px 0 44px}
 .hero-copy{max-width:560px}
 .mode-switch{width:min(480px,100%);margin-bottom:28px}
-.calculator-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(330px,.75fr);gap:32px;align-items:start}
+.calculator-layout{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(420px,.82fr);gap:28px;align-items:start}
 .input-column,.results-column{min-width:0}
-.input-column>.panel{padding-top:24px}
-.results-column{position:static}
+.input-column>.panel{margin:0;padding-top:24px}
+.results-column{position:static;top:auto;align-self:start}
 .results-column .result-card{margin:0;min-height:228px;display:flex;flex-direction:column;justify-content:center}
-.results-column #multi-summary{margin-top:16px;padding:22px 0 0}
+.results-column #multi-summary{margin:16px 0 0;padding:22px 0 0}
 .results-column .v3-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
 .results-column .metric{min-width:0;min-height:112px;display:flex;flex-direction:column;justify-content:space-between;gap:14px}
 .results-column .metric span{line-height:1.45}
@@ -21,9 +21,9 @@
 .multi-session-grid input,.multi-session-grid select{height:58px;min-height:58px;padding:0 16px;line-height:normal}
 .v3-row label{grid-template-rows:18px 52px;gap:7px;min-width:0}
 .v3-row input,.v3-row select{height:52px;min-height:52px;padding:0 13px;line-height:normal}
-.analysis-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(330px,.75fr);gap:32px;align-items:start;margin-top:28px}
-.analysis-grid>.panel{min-width:0}
-.analysis-grid .formulas-panel{position:static}
+.analysis-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(420px,.82fr);gap:28px;align-items:start;margin-top:28px}
+.analysis-grid>.panel{min-width:0;margin:0}
+.analysis-grid .formulas-panel{position:static;top:auto}
 .analysis-grid .formula-list{grid-template-columns:1fr}
 .analysis-grid .formula-line.average{grid-column:auto}
 @media(min-width:901px){
@@ -31,7 +31,7 @@
   .analysis-grid table{border-radius:0}
   .analysis-grid thead{position:sticky;top:0;z-index:1;background:var(--surface-raised)}
 }
-@media(max-width:900px){
+@media(max-width:960px){
   .shell{width:min(760px,calc(100% - 36px))}
   .hero{padding:58px 0 40px}
   .mode-switch{width:100%;margin-bottom:20px}
