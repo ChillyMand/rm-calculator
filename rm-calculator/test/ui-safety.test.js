@@ -37,6 +37,17 @@ test('calculator and support pages show the sports sub-brand above the parent br
   }
 });
 
+test('calculator exposes V3 multi-set inputs and no legacy reward UI', () => {
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert.match(html, /V3 实验模型/);
+  assert.match(html, /id="multi-weight"/);
+  assert.match(html, /id="last-effort"/);
+  assert.match(html, /id="advanced-toggle"/);
+  assert.match(html, /multiset-capacity-v3|V3\.0 BETA/);
+  assert.doesNotMatch(html, /组数贡献|休息贡献|稳定性贡献/);
+  assert.match(html, /app\.js\?v=20260926-v3/);
+});
+
 test('served pages use a versioned favicon URL', async () => {
   const portServer = net.createServer();
   portServer.listen(0, '127.0.0.1');

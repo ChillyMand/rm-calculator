@@ -39,12 +39,12 @@
       </section>
 
       <section class="support-card">
-        <div class="support-card-head"><span class="step">02</span><div><h2>多组计算模型</h2><p>结合多组训练中的力量输出、组数、休息和稳定性进行估算。</p></div></div>
-        <div class="formula-flow"><span>每组独立 1RM</span><b>→</b><span>重量加权基础值</span><b>→</b><span>表现修正</span></div>
-        <div class="parameter-list"><div><span>组数贡献</span><strong>最高 +8%</strong><small>组数越多，信息价值递减</small></div><div><span>休息贡献</span><strong>最高 +4%</strong><small>1–5 分钟选择范围</small></div><div><span>稳定性贡献</span><strong>最高 +3%</strong><small>比较后续组与第一组的表现</small></div></div>
-        <div class="cap-note">总修正上限：+15%</div>
-        <div class="example-box"><strong>示例：80kg × 5 × 5</strong><p>5 组正式组各自计算基础 1RM，再按实际重量加权得到基础值。5 组带来 +4% 组数贡献；若每组都稳定完成，稳定性贡献为 +3%；5 分钟休息不提供额外休息贡献。</p><div class="example-result"><span>假设基础 1RM = 92.5kg</span><b>综合预计 ≈ 98.98kg</b></div></div>
-        <p class="model-note">热身组不参与计算。RIR 属于表现修正变量，组间休息属于疲劳表现变量。</p>
+        <div class="support-card-head"><span class="step">02</span><div><h2>多组计算模型 V3（实验版）</h2><p>利用完成次数、训练顺序、休息和末组余力，反推训练开始时的未疲劳 e1RM。</p></div></div>
+        <div class="formula-flow"><span>实际完成次数</span><b>→</b><span>递推残留疲劳</span><b>→</b><span>反推新鲜能力</span></div>
+        <div class="parameter-list"><div><span>支持组数</span><strong>2～8 组</strong><small>6～8 组会明确标为外推</small></div><div><span>组间休息</span><strong>1～5 分钟</strong><small>休息用于恢复衰减，不是奖励</small></div><div><span>努力程度</span><strong>末组 RIR</strong><small>未知 RIR 不会被默认为 0</small></div></div>
+        <div class="cap-note">V3 不再使用组数、休息或稳定性加分；单组页面仍保留原有 8 公式模型。</div>
+        <div class="example-box"><strong>示例：80kg × 5 × 5</strong><p>5 个正式组均完成 5 次，组间休息 5 分钟，前组 RIR 未知、末组选择“接近力竭（RIR 0～1）”。模型用前四组产生的残留疲劳修正末组能力。</p><div class="example-result"><span>V3 预计最大力量 e1RM</span><b>约 97kg</b></div></div>
+        <p class="model-note">V3 参数主要来自公开卧推研究。深蹲、硬拉和其他动作会标为迁移估算；结果不是实测 PR，也不是个人预测区间。</p>
       </section>
 
       <section class="support-card disclaimer-card">

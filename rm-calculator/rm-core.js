@@ -21,13 +21,6 @@ function normalizeFormulaConfig(config = DEFAULT_FORMULA_CONFIG) {
   return { enabled, trimHighest: config.trimHighest !== false, trimLowest: config.trimLowest !== false };
 }
 
-export const MODEL_PARAMS = {
-  maxSetBonus: 0.08,
-  maxRestBonus: 0.04,
-  maxConsistencyBonus: 0.03,
-  maxTotalBonus: 0.15,
-};
-
 export const RM_PERCENTAGES = [
   [1, 1], [2, 0.95], [3, 0.93], [4, 0.9], [5, 0.87], [6, 0.85], [7, 0.83],
   [8, 0.8], [9, 0.77], [10, 0.75], [11, 0.73], [12, 0.7], [13, 0.68],
@@ -59,44 +52,6 @@ export function calculateSet({ weight, reps, rir = 0 }, formulaConfig = DEFAULT_
     formulas,
     average: trimmedValues.reduce((sum, value) => sum + value, 0) / trimmedValues.length,
     range: { min: Math.min(...values), max: Math.max(...values) },
-  };
-}
-
-function restContribution(minutes) {
-  if (minutes >= 5) return 0;
-  if (minutes >= 4) return 0.005;
-  if (minutes >= 3) return 0.01;
-  if (minutes >= 2) return 0.02;
-  if (minutes >= 1.5) return 0.03;
-  return 0.04;
-}
-
-export function calculateMultiSet(inputSets, params = MODEL_PARAMS) {
-  const config = { ...MODEL_PARAMS, ...params };
-  const validSets = inputSets.filter((set) => !set.warmup && validateSet(set).valid);
-  if (!validSets.length) return { sets: [], error: '请至少添加一组有效训练数据' };
-  const sets = validSets.map((set) => ({ ...set, result: calculateSet(set, config.formulaConfig) }));
-  const weightTotal = sets.reduce((sum, set) => sum + set.weight, 0);
-  const baseEstimate = sets.reduce((sum, set) => sum + set.result.average * set.weight, 0) / weightTotal;
-  const count = sets.length;
-  const setBonus = sets[0].result.effectiveReps === 1 ? 0 : config.maxSetBonus * ((count - 1) / (count + 3));
-  const rests = sets.slice(0, -1).map((set) => Number(set.rest)).filter((value, index) => sets[index].rest !== '' && Number.isFinite(value));
-  const averageRest = rests.length ? rests.reduce((sum, value) => sum + value, 0) / rests.length : null;
-  const restBonus = sets[0].result.effectiveReps === 1 ? 0 : averageRest === null ? 0 : restContribution(averageRest);
-  const firstReps = sets[0].result.effectiveReps;
-  const consistencyFactor = count === 1 ? 0 : sets.slice(1).reduce((sum, set) => sum + set.result.effectiveReps / firstReps, 0) / (count - 1);
-  const consistencyBonus = sets[0].result.effectiveReps === 1 ? 0 : config.maxConsistencyBonus * Math.max(0, Math.min(1, consistencyFactor));
-  const totalBonus = Math.min(config.maxTotalBonus, setBonus + restBonus + consistencyBonus);
-  const stats = {
-    totalSets: count,
-    totalReps: sets.reduce((sum, set) => sum + set.reps, 0),
-    volume: sets.reduce((sum, set) => sum + set.weight * set.reps, 0),
-    averageRest,
-  };
-  return {
-    sets, baseEstimate, multiEstimate: baseEstimate * (1 + totalBonus),
-    bonuses: { sets: setBonus, rest: restBonus, consistency: consistencyBonus, total: totalBonus },
-    consistencyFactor, stats,
   };
 }
 
