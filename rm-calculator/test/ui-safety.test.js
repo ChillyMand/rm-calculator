@@ -54,12 +54,15 @@ test('calculator uses responsive workspace and analysis layouts', () => {
   assert.match(html, /class="calculator-layout"/);
   assert.match(html, /class="results-column"/);
   assert.match(html, /class="analysis-grid"/);
-  assert.match(html, /layout-v3\.css\?v=20260926-3/);
+  assert.match(html, /layout-v3\.css\?v=20260927-1/);
   assert.match(css, /grid-template-columns:minmax\(0,1\.18fr\)/);
   assert.match(css, /\.input-column>\.panel\{margin:0/);
   assert.match(css, /\.results-column\{position:static;top:auto/);
   assert.match(css, /\.analysis-grid>\.panel\{min-width:0;margin:0\}/);
   assert.match(css, /height:58px;min-height:58px/);
+  assert.match(html, /<div class="set-list" id="set-list"><\/div>\s*<div class="set-list-actions"><button id="add-set"/);
+  assert.match(css, /\.set-list-actions #add-set\{width:100%;min-height:48px\}/);
+  assert.doesNotMatch(css, /@media\(max-width:420px\)\{\s*\.multi-session-grid\{grid-template-columns:1fr\}/);
   assert.match(css, /@media\(max-width:960px\)/);
   assert.match(css, /@media\(max-width:420px\)/);
 });

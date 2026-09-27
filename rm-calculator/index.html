@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./brand-final.css" />
     <link rel="stylesheet" href="./footer-logo.css" />
     <link rel="stylesheet" href="./support-entry.css" />
-    <link rel="stylesheet" href="./layout-v3.css?v=20260926-3" />
+    <link rel="stylesheet" href="./layout-v3.css?v=20260927-1" />
   </head>
   <body>
     <main class="shell">
@@ -53,7 +53,7 @@
           </section>
 
           <section id="multi-panel" class="panel hidden">
-            <div class="panel-heading"><div><span class="step">01</span><h2>记录正式训练组</h2></div><div class="multi-actions"><button id="reset-multi" class="button reset">重置</button><button id="add-set" class="button ghost" disabled>＋ 添加训练组</button></div></div>
+            <div class="panel-heading"><div><span class="step">01</span><h2>记录正式训练组</h2></div><div class="multi-actions"><button id="reset-multi" class="button reset">重置</button></div></div>
             <p class="helper">仅填写同一动作、同一重量的 2～8 个正式组。默认只需判断最后一组的剩余余力。</p>
             <div class="input-grid multi-session-grid">
               <label class="field"><span>统一重量 <em id="multi-weight-unit">kg</em></span><input id="multi-weight" type="number" min="0" step="0.1" placeholder="请输入重量" /></label>
@@ -62,6 +62,7 @@
               <label class="field"><span>最后一组还剩几次余力？</span><select id="last-effort"><option value="near">接近力竭（RIR 0～1）</option><option value="0">已经力竭（RIR 0）</option><option value="1">还可完成 1 次</option><option value="2">还可完成 2 次</option><option value="3">还可完成 3 次</option><option value="4">还可完成 4 次</option><option value="unknown">不知道</option></select></label>
             </div>
             <div class="set-list" id="set-list"></div>
+            <div class="set-list-actions"><button id="add-set" class="button ghost" disabled>＋ 添加训练组</button></div>
             <button id="advanced-toggle" class="button detail-toggle" type="button" aria-expanded="false">逐组设置 RIR / 休息</button>
             <p id="multi-error" class="error" role="alert"></p>
           </section>

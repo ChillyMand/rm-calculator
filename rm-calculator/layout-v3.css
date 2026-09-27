@@ -21,6 +21,8 @@
 .multi-session-grid input,.multi-session-grid select{height:58px;min-height:58px;padding:0 16px;line-height:normal}
 .v3-row label{grid-template-rows:18px 52px;gap:7px;min-width:0}
 .v3-row input,.v3-row select{height:52px;min-height:52px;padding:0 13px;line-height:normal}
+.set-list-actions{display:flex;margin-top:12px}
+.set-list-actions #add-set{width:100%;min-height:48px}
 .analysis-grid{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(420px,.82fr);gap:28px;align-items:start;margin-top:28px}
 .analysis-grid>.panel{min-width:0;margin:0}
 .analysis-grid .formulas-panel{position:static;top:auto}
@@ -52,6 +54,9 @@
   .panel-heading{align-items:flex-start;flex-wrap:wrap}
   .multi-actions{margin-left:auto}
   .multi-actions .button{padding:9px 11px}
+  .multi-session-grid{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:10px;row-gap:16px}
+  .multi-session-grid input,.multi-session-grid select{padding:0 11px;font-size:14px}
+  .multi-session-grid .field>span{font-size:11px}
   .input-column>.panel{padding-top:20px}
   .results-column .result-card{margin-top:14px}
   .result-value strong{font-size:clamp(52px,18vw,74px)}
@@ -60,10 +65,8 @@
   .analysis-grid .panel{padding-top:24px}
 }
 @media(max-width:420px){
-  .multi-session-grid{grid-template-columns:1fr}
   .panel-heading{gap:10px}
-  .multi-actions{width:100%;display:grid;grid-template-columns:auto 1fr}
-  .multi-actions .button{width:100%}
+  .multi-actions{margin-left:auto}
   .v3-row.advanced{grid-template-columns:22px minmax(0,1fr) minmax(58px,.72fr) minmax(65px,.85fr) 22px;gap:4px;padding:11px 7px}
   .v3-row.advanced .set-index{font-size:11px}
   .v3-row.advanced input,.v3-row.advanced select{padding:0 7px}
